@@ -37,3 +37,18 @@
   width: 50px;
 }
 
+
+body {
+  background-color: rgb(204, 255, 204);
+}
+
+h1 {
+  color: black;
+  text-align: center;
+}
+
+#title {
+  font-family: verdana;
+  font-size: 20px;
+  text-align: center;
+}

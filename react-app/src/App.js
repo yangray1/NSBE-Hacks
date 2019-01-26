@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const ReactDOM = require('react-dom');
+
 const log = console.log;
 
-class App extends Component {
+class App extends React.Component {
   constructor(){
     super();
     this.state={
@@ -42,7 +44,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Template</h1> 
+        <h1>NSBEHacks 2019</h1>
+        <p id="title">~Welcome to the Upturn~</p>
 
         <form onSubmit={this.handleSubmit}>
           <div class="formBox">
