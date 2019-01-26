@@ -38,47 +38,7 @@ class App extends Component {
     }).catch((err) => {
       console.log(err)
     })
-
-    // /* The network request will be sent by using Fetch b/c we want to use AJAX. */
-    // fetch("http://localhost:3000/api/shorten", {
-    //   method: 'POST',
-    //   headers:{
-    //     'Content-Type': 'application/json' // Need this to make the body appear in the api call.
-    //  },
-    //   body: JSON.stringify({
-    //     url: originalUrl
-    //   })
-    // }).then(response => {
-    //   return response.json()
-    // }).then(contents => {
-    //   this.setState({
-    //     url: contents.shortenUrl
-    //   })
-    //   return contents.shortenUrl;
-    // }).catch((err) => {
-    //   console.log(err)
-    // })
   }
-
-  // render() {
-  //   return (
-  //     <div>
-  //       <h1>template</h1> 
-
-  //       <form onSubmit={this.handleSubmit}>
-  //         <div class="formBox">
-  //           <label for="exampleInputEmail1">url: </label>
-  //           <input  class="form-control" id="url"  placeholder="Enter url" ></input>
-  //         </div>
-  //         <button type="submit" class="btn btn-primary" >Submit</button>
-  //       </form>
-        
-  //       <p><strong>Output:</strong> {this.state.url}</p>
-
-  //     </div>
-      
-  //   );
-  // }
   render() {
     return (
       <div>
