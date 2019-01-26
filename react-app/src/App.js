@@ -8,7 +8,7 @@ class App extends Component {
   constructor(){
     super();
     this.state={
-      url:''
+      input:''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -16,7 +16,7 @@ class App extends Component {
   handleSubmit(event) {
     const that = this;
     event.preventDefault();
-    let msg = event.target.url.value;
+    let msg = event.target.input.value;
 
     fetch("http://localhost:3000/api/sendMessage", {
       method: 'POST',
@@ -32,7 +32,7 @@ class App extends Component {
     }).then(contents => {
       console.log("contents: ",contents);
       this.setState({
-        url: contents
+        input: contents
       })
       return contents;
     }).catch((err) => {
@@ -60,20 +60,39 @@ class App extends Component {
     // })
   }
 
+  // render() {
+  //   return (
+  //     <div>
+  //       <h1>template</h1> 
+
+  //       <form onSubmit={this.handleSubmit}>
+  //         <div class="formBox">
+  //           <label for="exampleInputEmail1">url: </label>
+  //           <input  class="form-control" id="url"  placeholder="Enter url" ></input>
+  //         </div>
+  //         <button type="submit" class="btn btn-primary" >Submit</button>
+  //       </form>
+        
+  //       <p><strong>Output:</strong> {this.state.url}</p>
+
+  //     </div>
+      
+  //   );
+  // }
   render() {
     return (
       <div>
-        <h1>template</h1> 
+        <h1>Template</h1> 
 
         <form onSubmit={this.handleSubmit}>
           <div class="formBox">
             <label for="exampleInputEmail1">url: </label>
-            <input  class="form-control" id="url"  placeholder="Enter url" ></input>
+            <input  class="form-control" id="input"  placeholder="Enter input" ></input>
           </div>
           <button type="submit" class="btn btn-primary" >Submit</button>
         </form>
         
-        <p><strong>Output:</strong> {this.state.url}</p>
+        <p><strong>Shortened url:</strong> {this.state.input}</p>
 
       </div>
       
