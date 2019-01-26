@@ -92,7 +92,7 @@ class App extends Component {
           <button type="submit" class="btn btn-primary" >Submit</button>
         </form>
         
-        <p><strong>Shortened url:</strong> {this.state.input}</p>
+        <p><strong>Output:</strong> {this.state.input}</p>
 
       </div>
       
