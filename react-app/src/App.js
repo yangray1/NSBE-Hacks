@@ -49,7 +49,7 @@ class App extends React.Component {
 
         <form onSubmit={this.handleSubmit}>
           <div class="formBox">
-            <label for="exampleInputEmail1">url: </label>
+            <label for="exampleInputEmail1">input: </label>
             <input  class="form-control" id="input"  placeholder="Enter input" ></input>
           </div>
           <button type="submit" class="btn btn-primary" >Submit</button>
