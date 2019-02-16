@@ -8,12 +8,13 @@ const app = express();
 const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')// middleware for parsing HTTP body from client
 app.use(bodyParser.json());
+
 /* version   version: '2018-11-08' */
 const assistant = new AssistantV1({
-    version: '2019-01-26',
+    version: '2019-02-16',
     username: 'apikey',
-    password: 'LkSfRednXKSAAJtDgOoVc3ij-NbRdpdHt-XvNWtGzMhf'
-    // url: 'https://gateway.watsonplatform.net/assistant/api/v1/workspaces/fc5cf9a5-7654-4871-85a5-d44cc8d59ead/message'
+    // password: 'LkSfRednXKSAAJtDgOoVc3ij-NbRdpdHt-XvNWtGzMhf' // old chat bot.
+    password: "WIjn8JzSAE2gFKnDjhd3A48apUCMfTr1SJ0RSF2ff4VI"
   });
 
 // To fix the 'TypeError: Origin http://localhost:3000 is not allowed by Access-Control-Allow-Origin.' Error
@@ -36,9 +37,9 @@ app.post('/api/sendMessage', (req,res) => {
     if (!input){
         res.status(404).send();
     }
-    // res.send(input);
     assistant.message({
-        workspace_id: 'fc5cf9a5-7654-4871-85a5-d44cc8d59ead',
+        // workspace_id: 'fc5cf9a5-7654-4871-85a5-d44cc8d59ead', // old workspace id
+        workspace_id: '1387f8e1-faa1-4ded-b7af-9f5d262358a4',
         input: {'text': input},
         headers: {
         'Custom-Header': 'custom',
@@ -46,9 +47,8 @@ app.post('/api/sendMessage', (req,res) => {
         }
     },  function(err, result, response) {
         if (err)
-            res.status(404).send(err);
+            res.status(494).send(err);
         else
-            // res.send(result);
             res.send(JSON.stringify(result.output.text[0], null, 2))
     });
 })

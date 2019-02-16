@@ -20,6 +20,10 @@ class App extends React.Component {
     event.preventDefault();
     let msg = event.target.input.value;
 
+    this.setState({
+      input: "Chatbot is typing..."
+    })
+
     fetch("http://localhost:3000/api/sendMessage", {
       method: 'POST',
       headers:{
@@ -29,14 +33,11 @@ class App extends React.Component {
         input: msg
       })
     }).then(response => {
-      log("response: ",response)
       return response.json()
     }).then(contents => {
-      console.log("contents: ",contents);
       this.setState({
         input: contents
       })
-      return contents;
     }).catch((err) => {
       console.log(err)
     })
@@ -49,13 +50,13 @@ class App extends React.Component {
 
         <form onSubmit={this.handleSubmit}>
           <div class="formBox">
-            <label for="exampleInputEmail1">input: </label>
+            <label for="exampleInputEmail1">Enter your message: </label>
             <input  class="form-control" id="input"  placeholder="Enter input" ></input>
           </div>
-          <button type="submit" class="btn btn-primary" >Submit</button>
+          <button type="submit" class="btn btn-primary" >Enter</button>
         </form>
         
-        <p><strong>Output:</strong> {this.state.input}</p>
+        <p><strong>Chatbot:</strong> {this.state.input}</p>
 
       </div>
       
