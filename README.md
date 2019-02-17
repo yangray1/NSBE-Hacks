@@ -14,5 +14,32 @@ To solve this problem, we came up with an idea to **build a web application wher
 
 This application **integrates IBM Watson Assistance** with an online application using **React and Node.js**. We are in development of the product, but it is at its initial stage. Currently, the Watson Assistance is connected to the backend of the application, and the backend is connected to the frontend. The reason behind separating the back and front end is the security reasons. It makes the app more secure beacuse hackers cannot easily get the authorization information from the backend.
 
+----
 
+### Deploying on Heroku:
+
+Login:
+
+```
+<go to heroku website and create a new web app w/ same name as {your project name here}>
+heroku login
+git init
+heroku git:remote -a {your project name here}
+```
+
+Deploy
+
+```
+git add -A
+git commit -m "{your message here}"
+git push heroku master
+```
+
+##### Modifying/commiting :
+
+```
+git add -u
+git commit -m "{your message here}"
+git push heroku master
+```
 

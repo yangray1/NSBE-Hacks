@@ -7,7 +7,7 @@ const path = require('path')
 // Express
 const app = express();
 const port = process.env.PORT || 5000
-const bodyParser = require('body-parser')// middleware for parsing HTTP body from client
+const bodyParser = require('body-parser') // middleware for parsing HTTP body from client
 app.use(bodyParser.json());
 
 const assistant = new AssistantV1({
@@ -44,10 +44,10 @@ app.use(function(req, res, next) {
 app.use(express.static(path.resolve(__dirname, 'react-app/build')));
 
 // For heroku. Go to react's index.html page if we recieve any request that we havent specified.
+// Need this or else error for cannot get /
 app.get('/*',(req,res) => {
     res.sendFile(path.join(__dirname+'/react-app/build/index.html'));
 })
-
 
 /**
   Request body expects:
@@ -71,7 +71,7 @@ app.post('/api/sendMessage', (req,res) => {
         }
     },  function(err, result, response) {
         if (err)
-            res.status(494).send(err);
+            res.status(404).send(err);
         else
             res.send(JSON.stringify(result.output.text[0], null, 2))
     });
