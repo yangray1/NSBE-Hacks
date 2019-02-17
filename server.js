@@ -24,6 +24,10 @@ app.use(function(req, res, next) {
     next();
   });
 
+// For heroku.
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
 
 /**
   Request body expects:
