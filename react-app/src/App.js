@@ -16,7 +16,7 @@ class App extends React.Component {
   }
   
   handleSubmit(event) {
-    const that = this;
+    // const that = this;
     event.preventDefault();
     let msg = event.target.input.value;
 
