@@ -24,18 +24,17 @@ app.use(function(req, res, next) {
     next();
   });
 
-// For heroku. Any request that come in, if we havent specified, go to react default page.
-// deafult page located in build dir of react.
-if (process.env.NODE_ENV === 'production') {
-    log("Asdasd")
-    app.use(express.static(path.resolve(__dirname, 'react-app/build')));
-}
-
+/** 
+ * For heroku. 
+ * 
+ * Any request that come in, if we havent specified, go to react default page.
+ * deafult page located in build dir of react-app.
+ */
 app.get('/',(req,res) => {
-    log("AYY HOME PAGE");
+    // Need this, need build script + react-scripts dependency installed.
     app.use(express.static(path.resolve(__dirname, 'react-app/build')));
-    // res.send("AYY HOME PAGE")
 })
+
 /**
   Request body expects:
     {
