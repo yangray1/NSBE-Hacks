@@ -9,7 +9,6 @@ const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')// middleware for parsing HTTP body from client
 app.use(bodyParser.json());
 
-/* version   version: '2018-11-08' */
 const assistant = new AssistantV1({
     version: '2019-02-16',
     username: 'apikey',
@@ -24,14 +23,15 @@ app.use(function(req, res, next) {
     next();
   });
 
-// For heroku.
+// For heroku. Any request that come in, if we havent specified, go to react default page.
+// deafult page located in build dir of react.
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
+    app.use(express.static(path.resolve(__dirname, 'build')));
 }
 
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+// 	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+// });
 
 /**
   Request body expects:
