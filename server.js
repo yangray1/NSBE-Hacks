@@ -28,8 +28,16 @@ app.use(function(req, res, next) {
 /** 
  * For heroku.
  * 
- * Upon building react app, creates a 'build' folder in react-app.
- * Set the static page to that
+ * - heroku-postbuild:     Tells heroku after its done what its doing, go to react-app folder and build the react app.
+ * - npm run build script: Kicks off Create React App’s production build, which will put its
+ *                         *output files in the client/build folder* so Express can find them.
+ * Serve static files from the React app
+ * 
+ * Need: (in express' package.json)
+ *      - heroku-postbuild script
+ *      - build script (^ depends on build)
+ *          - 
+ *      - react-scripts dependency (^ needs this)
  */
 app.use(express.static(path.resolve(__dirname, 'react-app/build')));
 
@@ -41,9 +49,6 @@ app.use(express.static(path.resolve(__dirname, 'react-app/build')));
  *            - build folder contains index.html
  */
 app.get('/*',(req,res) => {
-    // Need this, need build script + react-scripts dependency installed. (on both server.js and react module). Only on express?
-    // res.send("DSAFDDFGSA")
-    // app.use(express.static(path.resolve(__dirname, 'react-app/build')));
     res.sendFile(path.join(__dirname+'/react-app/build/index.html'));
 })
 
