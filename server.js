@@ -2,6 +2,7 @@
 const log = console.log;
 const express = require('express');
 const AssistantV1 = require('watson-developer-cloud/assistant/v1');
+const path = require('path')
 
 // Express
 const app = express();
