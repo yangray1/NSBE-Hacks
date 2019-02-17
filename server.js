@@ -36,7 +36,7 @@ app.get('/*',(req,res) => {
     // Need this, need build script + react-scripts dependency installed. (on both server.js and react module)
     // res.send("DSAFDDFGSA")
     // app.use(express.static(path.resolve(__dirname, 'react-app/build')));
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    res.sendFile(path.join(__dirname+'/react-app/build/index.html'));
 })
 
 
