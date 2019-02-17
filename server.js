@@ -26,28 +26,24 @@ app.use(function(req, res, next) {
 
 
 /** 
- * For heroku.
+ * Info about `react-app/build` folder for the next 2 .use/.gets:
+ * FROM: https://facebook.github.io/create-react-app/docs/deployment
  * 
- * - heroku-postbuild:     Tells heroku after its done what its doing, go to react-app folder and build the react app.
- * - npm run build script: Kicks off Create React App’s production build, which will put its
- *                         *output files in the client/build folder* so Express can find them.
- * Serve static files from the React app
+ * - build folder is created when build script is ran - which builds the react app (more details about the scripts below)
+ * - build folder contains the production build of your app
+ *      - ie can be used to serve/display static files
+ *      - ie has index.html
  * 
- * Need: (in express' package.json)
- *      - heroku-postbuild script
- *      - build script (^ depends on build)
- *          - 
- *      - react-scripts dependency (^ needs this)
+ * Info on Scripts:
+ *      - heroku-postbuild:     Tells heroku to go to react-app folder and *build the react app.* (after herokus done what its doing)
+ *      - npm run build script: Kicks off Create React App’s production build, which will put its
+ *                              *output files in the react-app/build folder* so Express can find them.
  */
+
+// For heroku. Serve static files from the React app
 app.use(express.static(path.resolve(__dirname, 'react-app/build')));
 
-/** 
- * For heroku. 
- * 
- * Go to react's index.html page if we recieve any request that we havent specified.
- * React app: - upon building- creates a 'build' folder under react-app.
- *            - build folder contains index.html
- */
+// For heroku. Go to react's index.html page if we recieve any request that we havent specified.
 app.get('/*',(req,res) => {
     res.sendFile(path.join(__dirname+'/react-app/build/index.html'));
 })
