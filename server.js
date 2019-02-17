@@ -24,16 +24,24 @@ app.use(function(req, res, next) {
     next();
   });
 
+
+/** 
+ * For heroku.
+ * 
+ * Upon building react app, creates a 'build' folder in react-app.
+ * Set the static page to that
+ */
 app.use(express.static(path.resolve(__dirname, 'react-app/build')));
 
 /** 
  * For heroku. 
  * 
- * Go to react's default page if we recieve any request that we havent specified.
- * (Deafult page located in build dir of react-app.)
+ * Go to react's index.html page if we recieve any request that we havent specified.
+ * React app: - upon building- creates a 'build' folder under react-app.
+ *            - build folder contains index.html
  */
 app.get('/*',(req,res) => {
-    // Need this, need build script + react-scripts dependency installed. (on both server.js and react module)
+    // Need this, need build script + react-scripts dependency installed. (on both server.js and react module). Only on express?
     // res.send("DSAFDDFGSA")
     // app.use(express.static(path.resolve(__dirname, 'react-app/build')));
     res.sendFile(path.join(__dirname+'/react-app/build/index.html'));

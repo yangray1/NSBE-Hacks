@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const ReactDOM = require('react-dom');
-
-const log = console.log;
-
 class App extends React.Component {
   constructor(){
     super();
@@ -16,7 +12,6 @@ class App extends React.Component {
   }
   
   handleSubmit(event) {
-    // const that = this;
     event.preventDefault();
     let msg = event.target.input.value;
 
