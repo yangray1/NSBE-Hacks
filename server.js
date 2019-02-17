@@ -27,11 +27,11 @@ app.use(function(req, res, next) {
 /** 
  * For heroku. 
  * 
- * Any request that come in, if we havent specified, go to react default page.
- * deafult page located in build dir of react-app.
+ * Go to react's default page if we recieve any request that we havent specified.
+ * (Deafult page located in build dir of react-app.)
  */
 app.get('/',(req,res) => {
-    // Need this, need build script + react-scripts dependency installed.
+    // Need this, need build script + react-scripts dependency installed. (on both server.js and react module)
     app.use(express.static(path.resolve(__dirname, 'react-app/build')));
 })
 

@@ -8,6 +8,7 @@
     "client": "npm start --prefix react-app",
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "build": "react-scripts build",
     "heroku-postbuild": "cd react-app && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
@@ -18,6 +19,7 @@
     "express": "^4.16.4",
     "nodemon": "^1.18.10",
     "path": "^0.12.7",
+    "react-scripts": "^2.1.5",
     "watson-developer-cloud": "^3.16.1"
   }
 }
