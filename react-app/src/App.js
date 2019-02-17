@@ -24,7 +24,8 @@ class App extends React.Component {
       input: "Chatbot is typing..."
     })
 
-    fetch("http://localhost:3000/api/sendMessage", {
+    /* For local host: fetch http://localhost:3000/api/sendMessage */
+    fetch("https://upturn.herokuapp.com//api/sendMessage", {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json' // Need this to make the body appear in the api call.
