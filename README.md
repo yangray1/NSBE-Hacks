@@ -42,4 +42,3 @@ git add -u
 git commit -m "{your message here}"
 git push heroku master
 ```
-
