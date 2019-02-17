@@ -5,7 +5,7 @@ const AssistantV1 = require('watson-developer-cloud/assistant/v1');
 
 // Express
 const app = express();
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 const bodyParser = require('body-parser')// middleware for parsing HTTP body from client
 app.use(bodyParser.json());
 
@@ -28,10 +28,6 @@ app.use(function(req, res, next) {
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'build')));
 }
-
-// app.get('*', (req, res) => {
-// 	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-// });
 
 /**
   Request body expects:

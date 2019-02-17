@@ -24,7 +24,7 @@ class App extends React.Component {
       input: "Chatbot is typing..."
     })
 
-    /* For local host: fetch http://localhost:3000/api/sendMessage */
+    /* For local host: fetch http://localhost:5000/api/sendMessage */
     fetch("https://upturn.herokuapp.com/api/sendMessage", {
       method: 'POST',
       headers:{
