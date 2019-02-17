@@ -33,7 +33,8 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('/',(req,res) => {
     log("AYY HOME PAGE");
-    res.send("AYY HOME PAGE")
+    app.use(express.static(path.resolve(__dirname, 'react-app/build')));
+    // res.send("AYY HOME PAGE")
 })
 /**
   Request body expects:
