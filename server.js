@@ -27,9 +27,14 @@ app.use(function(req, res, next) {
 // For heroku. Any request that come in, if we havent specified, go to react default page.
 // deafult page located in build dir of react.
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.resolve(__dirname, 'build')));
+    log("Asdasd")
+    app.use(express.static(path.resolve(__dirname, 'react-app/build')));
 }
 
+app.get('/',(req,res) => {
+    log("AYY HOME PAGE");
+    res.send("AYY HOME PAGE")
+})
 /**
   Request body expects:
     {
