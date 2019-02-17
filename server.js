@@ -24,17 +24,21 @@ app.use(function(req, res, next) {
     next();
   });
 
+app.use(express.static(path.resolve(__dirname, 'react-app/build')));
+
 /** 
  * For heroku. 
  * 
  * Go to react's default page if we recieve any request that we havent specified.
  * (Deafult page located in build dir of react-app.)
  */
-app.get('/',(req,res) => {
+app.get('/*',(req,res) => {
     // Need this, need build script + react-scripts dependency installed. (on both server.js and react module)
     // res.send("DSAFDDFGSA")
-    app.use(express.static(path.resolve(__dirname, 'react-app/build')));
+    // app.use(express.static(path.resolve(__dirname, 'react-app/build')));
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
 })
+
 
 /**
   Request body expects:
