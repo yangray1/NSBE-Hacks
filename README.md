@@ -2,7 +2,7 @@
 
 ### **Won best Use of IBM Watson or BlockChain API award**
 
-Deployed on: https://upturn.herokuapp.com
+Deployed on: https://upturn.herokuapp.com (May take up to 30 seconds to load)
 
 --------
 
